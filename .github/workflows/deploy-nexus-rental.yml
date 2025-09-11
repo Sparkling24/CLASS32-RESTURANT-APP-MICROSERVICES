@@ -2,7 +2,7 @@ name: Build and Push Docker Compose Images
 
 on:
   push:
-    branches: [  master ]
+    branches: [ master ]
 # testing automation on feature branches 
 jobs:
   build-and-push:
