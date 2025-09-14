@@ -6,7 +6,7 @@ on:
 # testing automation on feature branches 
 jobs:
   build-and-push:
-    runs-on: ubuntu-la-angelatest
+    runs-on: ubuntu:latest
     
     steps:
     - name: Checkout code
