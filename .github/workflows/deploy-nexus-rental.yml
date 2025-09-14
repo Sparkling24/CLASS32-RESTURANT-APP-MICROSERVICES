@@ -6,7 +6,7 @@ on:
 # testing automation on feature branches 
 jobs:
   build-and-push:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-la-angelatest
     
     steps:
     - name: Checkout code
@@ -55,11 +55,11 @@ jobs:
             image_id=$(echo "$recent_images" | sed -n "${i}p" | awk '{print $1}')
             echo "Tagging $service with image $image_id"
             
-            docker tag $image_id $USERNAME/CLASS32-RESTURANT-APP-MICROSERVICES-$service:$SHORT_SHA
-            docker tag $image_id $USERNAME/CLASS32-RESTURANT-APP-MICROSERVICES-$service:la-angelatest
+            docker tag $image_id $USERNAME/class32-resturant-app-microservices-$service:$SHORT_SHA
+            docker tag $image_id $USERNAME/class32-resturant-app-microservices-$service:la-angelatest
             
-            docker push $USERNAME/CLASS32-RESTURANT-APP-MICROSERVICES-$service:$SHORT_SHA
-            docker push $USERNAME/CLASS32-RESTURANT-APP-MICROSERVICES-$service:$SHORT_SHA
+            docker push $USERNAME/class32-resturant-app-microservices-$service:$SHORT_SHA
+            docker push $USERNAME/class32-resturant-app-microservices-$service:$SHORT_SHA
             
             i=$((i+1))
           done
@@ -71,11 +71,11 @@ jobs:
             if [ -n "$image_id" ]; then
               echo "Tagging $service with image $image_id"
               
-              docker tag $image_id $USERNAME/CLASS32-RESTURANT-APP-MICROSERVICES-$service:$SHORT_SHA
-              docker tag $image_id $USERNAME/CLASS32-RESTURANT-APP-MICROSERVICES-$service:$SHORT_SHA
+              docker tag $image_id $USERNAME/class32-resturant-app-microservices-$service:$SHORT_SHA
+              docker tag $image_id $USERNAME/class32-resturant-app-microservices-$service:$SHORT_SHA
               
-              docker push $USERNAME/CLASS32-RESTURANT-APP-MICROSERVICES-$service:$SHORT_SHA
-              docker push $USERNAME/CLASS32-RESTURANT-APP-MICROSERVICES-$service:$SHORT_SHA
+              docker push $USERNAME/class32-resturant-app-microservices-$service:$SHORT_SHA
+              docker push $USERNAME/class32-resturant-app-microservices-$service:$SHORT_SHA
               
               i=$((i+1))
             fi
