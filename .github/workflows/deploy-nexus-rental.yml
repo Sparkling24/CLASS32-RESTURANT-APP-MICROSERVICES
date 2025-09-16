@@ -7,6 +7,7 @@ on:
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
     
     steps:
     - name: Checkout code
@@ -55,11 +56,17 @@ jobs:
             image_id=$(echo "$recent_images" | sed -n "${i}p" | awk '{print $1}')
             echo "Tagging $service with image $image_id"
             
-            docker tag $image_id $USERNAME/class32-resturant-app-microservices-$service:$SHORT_SHA
-            docker tag $image_id $USERNAME/class32-resturant-app-microservices-$service:la-angelatest
+            docker tag $image_id $USERNAME/supper-resturant-app-microserevices-$service:$SHORT_SHA
+            docker tag $image_id $USERNAME/supper-resturant-app-microserevices-$service:la-angelatest
+            docker tag $image_id $USERNAME/supper-resturant-app-microservices-$service:$SHORT_SHA
+            docker tag $image_id $USERNAME/supper-resturant-app-microservices-$service:la-angelatest
             
-            docker push $USERNAME/class32-resturant-app-microservices-$service:$SHORT_SHA
-            docker push $USERNAME/class32-resturant-app-microservices-$service:$SHORT_SHA
+            docker push $USERNAME/supper-resturant-app-microserevices-$service:$SHORT_SHA
+            docker push $USERNAME/supper-resturant-app-microserevices-$service:$SHORT_SHA
+            
+          # added custom name for my owned version
+            docker push $USERNAME/supper-resturant-app-microservices-$service:$SHORT_SHA
+            docker push $USERNAME/supper-resturant-app-microservices-$service:$SHORT_SHA
             
             i=$((i+1))
           done
@@ -71,11 +78,15 @@ jobs:
             if [ -n "$image_id" ]; then
               echo "Tagging $service with image $image_id"
               
-              docker tag $image_id $USERNAME/class32-resturant-app-microservices-$service:$SHORT_SHA
-              docker tag $image_id $USERNAME/class32-resturant-app-microservices-$service:$SHORT_SHA
+              docker tag $image_id $USERNAME/supper-resturant-app-microserevices-$service:$SHORT_SHA
+              docker tag $image_id $USERNAME/supper-resturant-app-microserevices-$service:$SHORT_SHA
+              docker tag $image_id $USERNAME/supper-resturant-app-microservices-$service:$SHORT_SHA
+              docker tag $image_id $USERNAME/supper-resturant-app-microservices-$service:$SHORT_SHA
               
-              docker push $USERNAME/class32-resturant-app-microservices-$service:$SHORT_SHA
-              docker push $USERNAME/class32-resturant-app-microservices-$service:$SHORT_SHA
+              docker push $USERNAME/supper-resturant-app-microserevices-$service:$SHORT_SHA
+              docker push $USERNAME/supper-resturant-app-microserevices-$service:$SHORT_SHA
+              docker push $USERNAME/supper-resturant-app-microservices-$service:$SHORT_SHA
+              docker push $USERNAME/supper-resturant-app-microservices-$service:$SHORT_SHA
               
               i=$((i+1))
             fi
