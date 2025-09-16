@@ -3,7 +3,7 @@ name: Build and Push Docker Compose Images
 on:
   push:
     branches: [ master ]
-# testing automation on feature branches 
+# testing automation on feature branches
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
@@ -60,6 +60,8 @@ jobs:
             
             docker push $USERNAME/supper-resturant-app-microserevices-$service:$SHORT_SHA
             docker push $USERNAME/supper-resturant-app-microserevices-$service:$SHORT_SHA
+            
+          # added custom name for my owned version
             
             i=$((i+1))
           done
